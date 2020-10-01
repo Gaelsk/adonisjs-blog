@@ -1,0 +1,41 @@
+@layout('main')
+@section('content')
+    <div class="w3-margin-top">
+        <a href="/posts">Go back</a>
+        <hr>
+    </div>
+    <form action="{{'/posts/' + post.id + '?_method=PUT'}}" method="POST" class="w3-container w3-margin-top">
+        {{ csrfField() }}
+        <div class="w3-margin-top">
+            <label for="title">Title</label>
+             <input 
+               type="text" 
+               name="title" 
+               class="w3-input w3-border" 
+               id="title"
+               value="{{post.title}}"
+            >
+            {{elIf('<div class="w3-text-red">$self</div>', getErrorFor('title'), hasErrorFor('title'))}}
+        </div>
+        <div class="w3-margin-top">
+            <label for="body">Body</label>
+            <textarea 
+              name="body" 
+              class="w3-input w3-border" 
+              id="body" 
+              cols="30" 
+              rows="10"
+            >
+                {{post.body}}
+            </textarea>
+            {{elIf('<div class="w3-text-red">$self</div>', getErrorFor('body'), hasErrorFor('body'))}}
+
+        </div>
+        <button 
+          type="submit" 
+          class="w3-btn w3-teal w3-margin-top w3-padding"
+        >
+          UPDATE POST
+        </button>
+    </form>
+@endsection

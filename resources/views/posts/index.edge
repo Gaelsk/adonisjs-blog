@@ -1,0 +1,16 @@
+@layout('main')
+@section('content')
+@if(old('notification'))
+  <div class="w3-panel w3-pale-green w3-padding">
+      {{old('notification')}}
+      <span onclick="this.parentElement.style.display='none'"
+      class="w3-button w3-pale-green w3-display-topright">&times;</span> 
+</div>
+@endif
+<h1>{{title}}</h1>
+<ul class="w3-ul w3-border">
+    @each(post in posts)
+<li class="w3-padding"><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+    @endeach
+</ul>
+@endsection

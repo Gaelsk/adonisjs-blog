@@ -1,0 +1,24 @@
+@layout('main')
+@section('content')
+<div class="w3-margin-top">
+    <a href="/posts">Go back</a>
+    <hr>
+</div>
+
+<h1>{{post.title}}</h1>
+<p>{{post.body}}</p>
+
+<hr>
+
+<div class="actions">
+<a href="/posts/{{post.id}}/edit" class="w3-button w3-blue">EDIT <i class="fa fa-pencil"></i></a>
+<form action="{{'/posts/' + post.id + '?_method=DELETE'}}" method="POST">
+    {{ csrfField() }}
+    <button type="submit" class="w3-button w3-red">
+       DELETE     
+       <i class="fa fa-trash"></i>
+    </button>
+</form>
+
+</div>
+@endsection

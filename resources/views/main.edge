@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ style('https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous')}}
+    {{ style('https://www.w3schools.com/w3css/4/w3.css') }}
+    {{ style('style') }}
+    <title>Adonis Blog</title>
+</head>
+<body>
+    <header class="w3-border">
+        <div class="container">
+            <div class="w3-bar w3-light">
+                <a href="/" class="w3-bar-item w3-button w3-mobile brand">My Blog</a>
+                <a href="/posts" class="w3-bar-item w3-button w3-mobile">Posts</a>
+                <a href="/posts/add" class="w3-bar-item w3-button w3-mobile"> <i class="fa fa-plus"></i> New Post</a>
+            </div> 
+        </div>
+    </header>
+    <main class="container">
+        @!section('content')
+    </main>
+</body>
+</html>
